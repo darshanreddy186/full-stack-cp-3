@@ -96,8 +96,8 @@ export function EditAvatar() {
               <button key={index} onClick={() => setPreviewAvatar(avatar)} className="flex-shrink-0">
                 <img 
                   src={avatar} 
-                  alt={`Avatar option ${index + 1}`}
-                  className={`w-20 h-20 rounded-lg transition-all duration-200 ${previewAvatar === avatar ? 'border-4 border-blue-500 scale-110' : 'border-2 border-transparent hover:border-blue-400'}`}
+                  alt={Avatar option ${index + 1}}
+                  className={w-20 h-20 rounded-lg transition-all duration-200 ${previewAvatar === avatar ? 'border-4 border-blue-500 scale-110' : 'border-2 border-transparent hover:border-blue-400'}}
                 />
               </button>
             ))}
@@ -138,4 +138,5 @@ export function EditAvatar() {
       </div>
     </>
   );
+
 }
