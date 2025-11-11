@@ -4,7 +4,6 @@ import { supabase } from '../lib/supabase';
 import { Sparkles, Brain, Heart, TrendingUp, RefreshCw } from 'lucide-react';
 
 // This is your Google Gemini API key.
-// IMPORTANT: This key will be exposed to the public in your final website code.
 import { GoogleGenerativeAI } from "@google/generative-ai";
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY1; 
 
@@ -199,4 +198,5 @@ export function PersonalizedRecommendations() {
       </div>
     </div>
   );
+
 }
