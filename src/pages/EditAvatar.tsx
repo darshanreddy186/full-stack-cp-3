@@ -17,12 +17,7 @@ const pixelAvatars = [
     'https://res.cloudinary.com/dhemfvxnm/image/upload/v1757958400/memo_2_omnjpb.png', 
     'https://res.cloudinary.com/dhemfvxnm/image/upload/v1757958402/vibrent_1_ehomez.png', 
     'https://res.cloudinary.com/dhemfvxnm/image/upload/v1757958402/upstream_21_a7lv3f.png', 
-    'https://res.cloudinary.com/dhemfvxnm/image/upload/v1757958403/vibrent_3_zjvwpa.png',
-    'https://res.cloudinary.com/dhemfvxnm/image/upload/v1757958401/upstream_20_dfrt2l.png',
-    'https://res.cloudinary.com/dhemfvxnm/image/upload/v1757958400/toon_6_tflm6c.png',
-    'https://res.cloudinary.com/dhemfvxnm/image/upload/v1757958400/toon_5_e7ryae.png',
-    'https://res.cloudinary.com/dhemfvxnm/image/upload/v1757958400/notion_14_ykugvz.png',
-    'https://res.cloudinary.com/dhemfvxnm/image/upload/v1757958402/notion_6_tzsj3h.png',
+
 ];
 
 export function EditAvatar() {
@@ -36,11 +31,7 @@ export function EditAvatar() {
   useEffect(() => {
     const fetchAvatar = async () => {
       if (!user) return;
-      const { data, error } = await supabase
-        .from('user_profiles')
-        .select('avatar')
-        .eq('id', user.id)
-        .single();
+      const { data, erro
 
       if (error) {
         console.error('Error fetching avatar:', error.message);
@@ -83,12 +74,7 @@ export function EditAvatar() {
         </button>
 
         <div className="flex-grow flex items-center justify-center">
-          <img 
-            src={previewAvatar || 'https://i.pravatar.cc/300'} 
-            alt="Avatar Preview"
-            className="w-64 h-64 rounded-full object-cover shadow-lg border-4 border-gray-700"
-          />
-        </div>
+  
         
         <div className="bg-gray-800/50 rounded-lg p-4 mt-8">
           <div className="flex overflow-x-auto space-x-4 pb-4">
@@ -138,4 +124,5 @@ export function EditAvatar() {
       </div>
     </>
   );
+
 }
