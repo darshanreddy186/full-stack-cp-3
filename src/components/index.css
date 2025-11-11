@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  /* --- Custom Animations (Your originals + new one) --- */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  /* New animation for the diary notification popup */
+  @keyframes slide-in-from-right {
+    0% {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* --- Animation Utility Classes --- */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  /* New utility class for the diary notification */
+  .animate-slide-in {
+    animation: slide-in-from-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+}
+
+
+/* --- React Slick Custom Styling (Unchanged) --- */
+
+/* Custom Arrow Styling */
+/* In your CSS file */
+.custom-arrow {
+    display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(0,0,0,0.5) !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  cursor: pointer !important;
+  z-index: 2 !important;
+}
+
+.next-arrow {
+  margin-left: 16px !important;
+}
+.prev-arrow {
+  margin-right: 16px !important;
+}
+
+/* Show arrows when hovering over the main slider container */
+.slick-slider:hover .custom-arrow {
+  opacity: 1;
+}
+
+.custom-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.prev-arrow {
+  left: -60px; /* Position outside the slider */
+}
+
+.next-arrow {
+  right: -60px; /* Position outside the slider */
+}
+
+/* Responsive adjustments for arrows */
+@media (max-width: 768px) {
+  .prev-arrow {
+    left: 10px;
+  }
+  .next-arrow {
+    right: 10px;
+  }
+}
+
+/* Custom Dot Styling */
+.slick-dots {
+  bottom: -40px; /* More space from the slider */
+}
+
+.custom-dot {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.slick-active .custom-dot {
+  background-color: #4ade80; /* green-400 */
+  transform: scale(1.25);
+}

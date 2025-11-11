@@ -1,0 +1,88 @@
+.embla-wow {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: auto;
+}
+
+.embla-wow__viewport {
+  overflow: hidden;
+  width: 100%;
+  height: 280px;
+  /* REQUIREMENT: Increased perspective for a more dramatic 3D look */
+  perspective: 2500px;
+}
+
+.embla-wow__container {
+  display: flex;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.embla-wow__slide {
+  position: relative;
+  flex: 0 0 45%;
+  min-width: 0;
+  padding: 0 10px;
+  height: 100%;
+  /* REQUIREMENT: Added smooth transition for all transforms */
+  transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1), opacity 0.5s ease-in-out;
+}
+
+/* Updated to be a button for accessibility */
+.embla-wow__slide__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+  border: none;
+  padding: 0;
+  display: block;
+  /* REQUIREMENT: Added transition for the hover effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* REQUIREMENT: Added hover highlight effect */
+.embla-wow__slide__inner:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.embla-wow__slide__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.embla-wow__slide__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  color: white;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  z-index: 10;
+  text-align: left; /* Ensure text inside the button is aligned properly */
+}
+
+.embla-wow__slide__content h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.embla-wow__slide__content p {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  line-height: 1.3;
+}
