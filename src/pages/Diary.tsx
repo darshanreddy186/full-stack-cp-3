@@ -63,8 +63,20 @@ export function Diary() {
   useEffect(() => {
     const draftKey = getDraftKey();
     
-    
+    const timer = setTimeout(() => {
+        if (selectedEntry) {
+            setDiaryHtml(selectedEntry.content);
+            setEditMode(false);
+            setMemoryQueue([]);
+        } else {
+            const savedDraft = draftKey ? localStorage.getItem(draftKey) : null;
+            setDiaryHtml(savedDraft || "<p>What's on your mind today?</p>");
+            setEditMode(true);
+            setMemoryQueue([]);
+        }
+    }, 0);
 
+    return () => clearTimeout(timer);
   }, [selectedDate, entries, user]);
 
   const loadEntries = async () => {
@@ -261,7 +273,7 @@ export function Diary() {
         <div className={`premium-notification ${notification.type === 'success' ? 'notification-success' : 'notification-error'}`}>
           <div className="notification-content">
             <div className="notification-icon">
-              {notification.type === 'success' ? }
+              {notification.type === 'success' ? '✨' : '⚠️'}
             </div>
             <div>
               <p className="notification-title">{notification.message}</p>
