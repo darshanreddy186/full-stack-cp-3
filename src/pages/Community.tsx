@@ -20,12 +20,6 @@ interface ModerationResult {
     analysis: object;
 }
 
-/**
- * Universal moderation function with contextual awareness.
- * @param contentToModerate The new text to analyze.
- * @param postContext The original post's content, if available.
- * @returns A promise resolving to a ModerationResult object.
- */
 async function moderateContent(contentToModerate: string, postContext: string | null = null): Promise<ModerationResult> {
     if (!GEMINI_API_KEY) return { category: 'safe', reason: 'API Key not configured.', analysis: {} };
 
@@ -80,7 +74,7 @@ async function generateSupportiveMessage(content: string): Promise<string> {
     }
 }
 
-// --- TypeScript Interfaces ---
+
 interface Post { id: string; created_at: string; content: string; user_id: string | null; author_name: string | null; tags: string[] | null; comment_count: number; }
 interface Comment { id: string; created_at: string; content: string; post_id: string; user_id: string; author_name: string | null; parent_comment_id: string | null; replies: Comment[]; }
 
@@ -932,4 +926,5 @@ const CrisisModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
             </div>
         </div>
     );
+
 };
